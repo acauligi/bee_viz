@@ -8,4 +8,5 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" /> 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
   <node name="zones" pkg="bee_viz" type="open_bag.py" args="-d $(arg zones)" required="true" />
+  <node name="render" pkg="bee_viz" type="render" required="true" output="screen"/>
 </launch>

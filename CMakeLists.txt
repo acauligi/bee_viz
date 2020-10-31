@@ -16,6 +16,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(Eigen3 REQUIRED)
 find_package(Boost REQUIRED COMPONENTS thread)
+find_package(osqp REQUIRED)
+find_package(OsqpEigen REQUIRED)
 
 catkin_package(
 #  INCLUDE_DIRS include
@@ -24,9 +26,15 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
-include_directories(
+include_directories(SYSTEM
   ${catkin_INCLUDE_DIRS}
+  ${EIGEN3_INCLUDE_DIR}
 )
 
 add_executable(render src/render.cpp)
-target_link_libraries(render ${catkin_LIBRARIES})
+target_link_libraries(render
+  PUBLIC
+  ${catkin_LIBRARIES}
+  PRIVATE
+  osqp::osqp
+)
