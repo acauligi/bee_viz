@@ -18,9 +18,3 @@ In a separate terminal run
     source ~/rviz_ws/devel/setup.bash
     roslaunch bee_viz ff_visualizer.launch
 ```
-
-In a separate terminal run
-```
-    source ~/rviz_ws/devel/setup.bash
-    rosrun bee_viz render
-```
