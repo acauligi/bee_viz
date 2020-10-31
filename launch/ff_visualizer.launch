@@ -2,8 +2,10 @@
   <arg name="model" default="$(find bee_viz)/model/astrobee.urdf.xacro"/>
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find bee_viz)/rviz/urdf.rviz" />
+  <arg name="zones" default="$(find bee_viz)/worlds/zones.bag" />
   <param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />  
   <param name="use_gui" value="$(arg gui)"/>
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" /> 
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
+  <node name="zones" pkg="bee_viz" type="open_bag.py" args="-d $(arg zones)" required="true" />
 </launch>
