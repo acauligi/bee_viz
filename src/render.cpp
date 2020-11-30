@@ -13,7 +13,11 @@
 #include <string>
 #include <math.h>
 
+#include <iostream>
+#include <chrono>
+
 #include "OsqpEigen/OsqpEigen.h"
+#include <scp/traj_opt.h>
 
 const double degree = M_PI/180;
 #define PI 3.14159265
@@ -49,6 +53,21 @@ int main( int argc, char** argv ) {
 
   ros::NodeHandle nh;
   ros::Rate r(10);
+
+  // scp::TOP top = scp::TOP(20., 51);
+  // top.x0 << 0.35, -0.5, 0., 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0, 0, 0;
+  // top.xg << 0.35, -0.5, 0., 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0, 0, 0;
+  // std::cout << "The num vars is " << top.GetNumTOPVariables() << "\n";
+  // std::cout << "The num constraints is " << top.GetNumTOPConstraints() << "\n";
+
+  auto start = std::chrono::high_resolution_clock::now();
+  // if (!top.Solve()) {
+  //   std::cout << "Solver failed!" << std::endl;
+  // } else {
+  //   auto stop = std::chrono::high_resolution_clock::now();
+  //   auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop-start);
+  //   std::cout << "Solver worked in " << duration.count()/1e6 << "s!" << std::endl;
+  // }
 
   setup_markers();
 

@@ -13,10 +13,12 @@
   <build_depend>visualization_msgs</build_depend>
   <build_depend>geometry_msgs</build_depend>
   <build_depend>message_filters</build_depend>
+  <build_depend>scp</build_depend>
   <run_depend>tf2_ros</run_depend>
   <run_depend>roscpp</run_depend>
   <run_depend>visualization_msgs</run_depend>
   <run_depend>eigen3</run_depend>
+  <run_depend>scp</run_depend>
 
   <export>
 

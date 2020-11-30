@@ -16,8 +16,10 @@ find_package(catkin REQUIRED COMPONENTS
 
 find_package(Eigen3 REQUIRED)
 find_package(Boost REQUIRED COMPONENTS thread)
+find_package(Bullet REQUIRED)
 find_package(osqp REQUIRED)
 find_package(OsqpEigen REQUIRED)
+find_package(scp REQUIRED)
 
 catkin_package(
 #  INCLUDE_DIRS include
@@ -26,9 +28,12 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
+message(STATUS "scp dirs: ${scp_INCLUDE_DIRS}")
 include_directories(SYSTEM
+  ${scp_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIR}
+  ${BULLET_INCLUDE_DIRS}
 )
 
 add_executable(render src/render.cpp)
@@ -36,5 +41,6 @@ target_link_libraries(render
   PUBLIC
   ${catkin_LIBRARIES}
   PRIVATE
+  scp
   osqp::osqp
 )
